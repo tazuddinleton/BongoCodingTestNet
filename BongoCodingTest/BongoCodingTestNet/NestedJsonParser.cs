@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+
 namespace BongoCodingTestNet
 {
-    class Question_1
+    public class NestedJsonParser
     {
-        static void Main(string[] args)
+        private JavaScriptSerializer _serializer;        
+        public NestedJsonParser()
         {
-            string json = "{\"Key1\": \"1\",\"Key2\": {\"Key3\": \"1\",\"Key4\": {\"Key5\": \"4\"}}}";
-
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            var res = serializer.Deserialize<Dictionary<string, object>>(json);
-            PrintWithDepth(res, 1);
-            Console.ReadLine();                
+            _serializer = new JavaScriptSerializer();            
         }
 
-        static void PrintWithDepth(Dictionary<string, object> dict, int depth)
+        public Dictionary<string, object> ParseJSON(string json)
         {
-           
+            return _serializer.Deserialize<Dictionary<string, object>>(json);            
+        }
+        public void PrintWithDepth(Dictionary<string, object> dict, int depth = 1)
+        {           
             foreach (var item in dict)
             {
                 Console.WriteLine(item.Key + " : " + depth);
