@@ -20,8 +20,7 @@ namespace BongoCodingTestNet
             _serializer = new JavaScriptSerializer();            
         }
 
-        public Dictionary<string, object> Deserialized
-        { get { return _deserialized; } }
+        public Dictionary<string, object> Deserialized => _deserialized;        
         // Implementing Fluent API here
         public NestedJsonParser Deserialize(string json)
         {

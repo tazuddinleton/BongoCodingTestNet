@@ -76,33 +76,32 @@ namespace TestBongoCodingTestNet
             int n1 = 8;
             int n2 = 9;
             int expectedOutput = 4;
-            int lca = LeastCommonAncestor.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
+            int lca = Program.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
             Assert.AreEqual(expectedOutput, lca);
             // scenerio 2
             n1 = 8;
             n2 = 5;
             expectedOutput = 2;
-            lca = LeastCommonAncestor.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
+            lca = Program.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
             Assert.AreEqual(expectedOutput, lca);
             // scenerio 3
             n1 = 9;
             n2 = 6;
             expectedOutput = 1;
-            lca = LeastCommonAncestor.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
+            lca = Program.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
             Assert.AreEqual(expectedOutput, lca);
             // scenerio 4
             n1 = 3;
             n2 = 6;
             expectedOutput = 3;
-            lca = LeastCommonAncestor.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
+            lca = Program.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
             Assert.AreEqual(expectedOutput, lca);
             // scenerio 5
             n1 = 1;
             n2 = 1;
             expectedOutput = 1;
-            lca = LeastCommonAncestor.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
+            lca = Program.LCA(nodes.Find(x => x.Value == n1), nodes.Find(x => x.Value == n2));
             Assert.AreEqual(expectedOutput, lca);
         }
-
     }
 }
