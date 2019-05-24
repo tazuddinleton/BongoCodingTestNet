@@ -51,8 +51,8 @@ namespace BongoCodingTestNet
                 string userInput = "user input";
                 while (!string.IsNullOrEmpty(userInput))
                 {
-                    Console.WriteLine("Press enter to exit");
-                    Console.WriteLine("To find LCA insert two node value seperated by space");
+                    Console.WriteLine("Press enter to exit!");
+                    Console.WriteLine("To find LCA insert two node value seperated by space.");
                     userInput = Console.ReadLine();
                     if (!string.IsNullOrEmpty(userInput))
                     {
