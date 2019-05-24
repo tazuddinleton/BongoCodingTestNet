@@ -59,7 +59,7 @@ namespace BongoCodingTestNet
                         var inputs = userInput.Split(' ');
                         n1 = int.Parse(inputs[0]);
                         n2 = int.Parse(inputs[1]);
-                        lca = LCA(nodes.Find(node => node.Value == n1), nodes.Find(node => node.Value == n2));
+                        lca = FindLCA(nodes.Find(node => node.Value == n1), nodes.Find(node => node.Value == n2));
                         Console.WriteLine("LCA : {0}", lca);
                     }
                 }
@@ -72,8 +72,20 @@ namespace BongoCodingTestNet
             }
             
         }
-
-        public static int LCA(Node node1, Node node2)
+       
+        /** Time & Space complexity of LCA
+        * Time complexity: 
+        * The following function has a O(n^1/2 ) time complexity
+        * because it runs n^1/2 times before hits the base case.
+        * 
+        * Space complexity:
+        * The space complexity of recursive algorithm is proportional to 
+        * the recustion depth. So if the maximum recursion depth of lca is n
+        * and each call takes to the function takes up m memory then the space
+        * complexity is O(nm).
+        * 
+        */
+        public static int FindLCA(Node node1, Node node2)
         {
             try
             {
@@ -91,7 +103,7 @@ namespace BongoCodingTestNet
                 if (node2.Parent.Value == node1.Value)
                     return node1.Value;
                 // recurse until found
-                return LCA(node1.Parent, node2.Parent);
+                return FindLCA(node1.Parent, node2.Parent);
             }
             catch (Exception ex)
             {
