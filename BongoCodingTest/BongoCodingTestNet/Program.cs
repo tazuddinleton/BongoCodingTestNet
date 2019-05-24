@@ -66,7 +66,8 @@ namespace BongoCodingTestNet
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Going down...");
+                Console.WriteLine("Hope you enjoyed!");
+                Console.Beep(1000, 100);                
                 Thread.Sleep(1000);
             }
             
