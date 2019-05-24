@@ -18,7 +18,7 @@ namespace BongoCodingTestNet
 
         public Dictionary<string, object> Deserialized
         { get { return _deserialized; } }
-        
+        // Implementing Fluent API here
         public NestedJsonParser Deserialize(string json)
         {
             _deserialized =  _serializer.Deserialize<Dictionary<string, object>>(json);
@@ -49,12 +49,10 @@ namespace BongoCodingTestNet
                 throw ex;
             }
         }
-
         public StringBuilder DeepParse(Dictionary<string, object> dict, StringBuilder output, int depth = 1)
         {
             try
             {
-
                 foreach (var item in dict)
                 {
                     output.Append(item.Key + ": " + depth + "\r\n");
