@@ -7,6 +7,10 @@ using System.Web.Script.Serialization;
 
 namespace BongoCodingTestNet
 {
+    /// <summary>
+    /// Just a wrapper around Microsoft's JavascriptSerializer
+    /// 
+    /// </summary>
     public class NestedJsonParser
     {
         private JavaScriptSerializer _serializer;
@@ -49,6 +53,7 @@ namespace BongoCodingTestNet
                 throw ex;
             }
         }
+        
         public StringBuilder DeepParse(Dictionary<string, object> dict, StringBuilder output, int depth = 1)
         {
             try
