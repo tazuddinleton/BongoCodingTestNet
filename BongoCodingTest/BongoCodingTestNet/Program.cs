@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 namespace BongoCodingTestNet
 {
-    class RunQuestion1
+    class Program
     {
         static void Main(string[] args)
         {

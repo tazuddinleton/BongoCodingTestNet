@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestBongoCodingTestNet
 {
     [TestClass]
-    public class JsonParser
+    public class TestJsonParser
     {
         [TestMethod]
         public void ShouldParseNestedJsonStringAndPrintWithDepth()
