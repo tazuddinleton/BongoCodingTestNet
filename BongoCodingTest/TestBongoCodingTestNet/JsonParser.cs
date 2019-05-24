@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestBongoCodingTestNet
 {
     [TestClass]
-    public class TestJsonSerialization
+    public class JsonParser
     {
         [TestMethod]
-        public void PrintWithDepth()
+        public void ShouldParseNestedJsonStringAndPrintWithDepth()
         {
             string json = "{\"Key1\": \"1\",\"Key2\": {\"Key3\": \"1\",\"Key4\": {\"Key5\": \"4\"}}}";
             NestedJsonParser parser = new NestedJsonParser();
