@@ -45,7 +45,7 @@ namespace BongoCodingTestNet
             try
             {
                 StringBuilder outPutBuilder = new StringBuilder();
-                DeepParse(_deserialized, outPutBuilder);
+                GenerateOuput(_deserialized, outPutBuilder);
                 Console.WriteLine(outPutBuilder.ToString());
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace BongoCodingTestNet
             }
         }
         
-        public StringBuilder DeepParse(Dictionary<string, object> dict, StringBuilder output, int depth = 1)
+        public StringBuilder GenerateOuput(Dictionary<string, object> dict, StringBuilder output, int depth = 1)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace BongoCodingTestNet
                     output.Append(item.Key + ": " + depth + "\r\n");
                     if (item.Value is Dictionary<string, object>)
                     {
-                        DeepParse((Dictionary<string, object>)item.Value, output, depth + 1);
+                        GenerateOuput((Dictionary<string, object>)item.Value, output, depth + 1);
                     }
                 }
                 return output;

@@ -21,7 +21,7 @@ namespace TestBongoCodingTestNet
             expectedOutput.Append(@"Key1: 1@Key2: 1@Key3: 2@Key4: 2@Key5: 3@");
             expectedOutput.Replace("@", Environment.NewLine);
 
-            output = parser.DeepParse(deserialized, output);
+            output = parser.GenerateOuput(deserialized, output);
             
             Assert.AreEqual(expectedOutput.ToString(), output.ToString());            
         }
@@ -43,7 +43,7 @@ namespace TestBongoCodingTestNet
             expectedOutput.Append("firstName: 4@lastName: 4@father: 4@firstName: 5@lastName: 5@father: 5@");
             expectedOutput.Replace("@", Environment.NewLine);
 
-            output = parser.DeepParse(deserialized, output);
+            output = parser.GenerateOuput(deserialized, output);
 
             Assert.AreEqual(expectedOutput.ToString(), output.ToString());
         }
