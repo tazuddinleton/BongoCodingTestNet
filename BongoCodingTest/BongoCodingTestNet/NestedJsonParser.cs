@@ -10,7 +10,7 @@ namespace BongoCodingTestNet
     public class NestedJsonParser
     {
         private JavaScriptSerializer _serializer;
-        Dictionary<string, object> _deserialized;
+        private Dictionary<string, object> _deserialized;
         public NestedJsonParser()
         {
             _serializer = new JavaScriptSerializer();            
