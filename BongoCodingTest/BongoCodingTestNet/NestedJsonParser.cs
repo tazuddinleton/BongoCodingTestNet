@@ -60,7 +60,7 @@ namespace BongoCodingTestNet
             {
                 foreach (var item in dict)
                 {
-                    output.Append(item.Key + ": " + depth + "\r\n");
+                    output.Append(item.Key + ": " + depth + Environment.NewLine);
                     if (item.Value is Dictionary<string, object>)
                     {
                         GenerateOuput((Dictionary<string, object>)item.Value, output, depth + 1);
