@@ -12,8 +12,7 @@ namespace TestBongoCodingTestNet
         {
             string json = "{\"Key1\": \"1\",\"Key2\": {\"Key3\": \"1\",\"Key4\": {\"Key5\": \"4\"}}}";
             NestedJsonParser parser = new NestedJsonParser();
-            var parsed = parser.ParseJSON(json);
-            parser.PrintWithDepth(parsed);
+            parser.Deserialize(json).Print();            
         }
     }
 }

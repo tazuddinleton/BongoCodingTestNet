@@ -9,24 +9,35 @@ namespace BongoCodingTestNet
 {
     public class NestedJsonParser
     {
-        private JavaScriptSerializer _serializer;        
+        private JavaScriptSerializer _serializer;
+        Dictionary<string, object> _deserialized;
         public NestedJsonParser()
         {
             _serializer = new JavaScriptSerializer();            
         }
 
-        public Dictionary<string, object> ParseJSON(string json)
+        public NestedJsonParser Deserialize(string json)
         {
-            return _serializer.Deserialize<Dictionary<string, object>>(json);            
+            _deserialized =  _serializer.Deserialize<Dictionary<string, object>>(json);
+            return this;
         }
-        public void PrintWithDepth(Dictionary<string, object> dict, int depth = 1)
-        {           
+        public string Serialize(object obj)
+        {
+            return _serializer.Serialize(obj);
+        }        
+        public void Print()
+        {
+            _printWithDepth(_deserialized);
+        }
+
+        private void _printWithDepth(Dictionary<string, object> dict, int depth = 1)
+        {
             foreach (var item in dict)
             {
                 Console.WriteLine(item.Key + " : " + depth);
                 if (item.Value is Dictionary<string, object>)
-                {                    
-                    PrintWithDepth((Dictionary<string, object>)item.Value, depth + 1);
+                {
+                    _printWithDepth((Dictionary<string, object>)item.Value, depth + 1);
                 }
             }
         }
