@@ -80,8 +80,8 @@ namespace BongoCodingTestNet
         * 
         * Space complexity:
         * The space complexity of recursive algorithm is proportional to 
-        * the recustion depth. So if the maximum recursion depth of lca is n
-        * and each call takes to the function takes up m memory then the space
+        * the recursion depth. So if the maximum recursion depth of lca is n
+        * and each call takes up m memory then the space
         * complexity is O(nm).
         * 
         */
