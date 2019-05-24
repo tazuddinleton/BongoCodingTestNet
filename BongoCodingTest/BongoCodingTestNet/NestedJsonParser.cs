@@ -16,6 +16,9 @@ namespace BongoCodingTestNet
             _serializer = new JavaScriptSerializer();            
         }
 
+        public Dictionary<string, object> Deserialized
+        { get { return _deserialized; } }
+        
         public NestedJsonParser Deserialize(string json)
         {
             _deserialized =  _serializer.Deserialize<Dictionary<string, object>>(json);
@@ -27,19 +30,22 @@ namespace BongoCodingTestNet
         }        
         public void Print()
         {
-            _printWithDepth(_deserialized);
+            StringBuilder outPutBuilder = new StringBuilder();
+            PrintWithDepth(_deserialized, outPutBuilder);
+            Console.WriteLine(outPutBuilder.ToString());
         }
 
-        private void _printWithDepth(Dictionary<string, object> dict, int depth = 1)
-        {
+        public StringBuilder PrintWithDepth(Dictionary<string, object> dict,StringBuilder output, int depth = 1)
+        {            
             foreach (var item in dict)
             {
-                Console.WriteLine(item.Key + " : " + depth);
+                output.Append(item.Key + ": " + depth + "\r\n");
                 if (item.Value is Dictionary<string, object>)
                 {
-                    _printWithDepth((Dictionary<string, object>)item.Value, depth + 1);
+                    PrintWithDepth((Dictionary<string, object>)item.Value, output, depth + 1);
                 }
             }
+            return output;
         }
     }    
 }
