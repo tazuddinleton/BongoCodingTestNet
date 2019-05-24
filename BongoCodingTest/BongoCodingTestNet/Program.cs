@@ -22,6 +22,6 @@ namespace BongoCodingTestNet
             parser.Deserialize(jsonBuilder.ToString())
                   .Print();
             Console.ReadLine();
-        }
+        }        
     }
 }
