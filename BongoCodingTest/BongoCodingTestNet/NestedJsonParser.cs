@@ -26,26 +26,50 @@ namespace BongoCodingTestNet
         }
         public string Serialize(object obj)
         {
-            return _serializer.Serialize(obj);
+            try
+            {
+                return _serializer.Serialize(obj);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }        
         public void Print()
         {
-            StringBuilder outPutBuilder = new StringBuilder();
-            PrintWithDepth(_deserialized, outPutBuilder);
-            Console.WriteLine(outPutBuilder.ToString());
+            try
+            {
+                StringBuilder outPutBuilder = new StringBuilder();
+                PrintWithDepth(_deserialized, outPutBuilder);
+                Console.WriteLine(outPutBuilder.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public StringBuilder PrintWithDepth(Dictionary<string, object> dict,StringBuilder output, int depth = 1)
-        {            
-            foreach (var item in dict)
+        public StringBuilder PrintWithDepth(Dictionary<string, object> dict, StringBuilder output, int depth = 1)
+        {
+            try
             {
-                output.Append(item.Key + ": " + depth + "\r\n");
-                if (item.Value is Dictionary<string, object>)
+
+                foreach (var item in dict)
                 {
-                    PrintWithDepth((Dictionary<string, object>)item.Value, output, depth + 1);
+                    output.Append(item.Key + ": " + depth + "\r\n");
+                    if (item.Value is Dictionary<string, object>)
+                    {
+                        PrintWithDepth((Dictionary<string, object>)item.Value, output, depth + 1);
+                    }
                 }
+                return output;
             }
-            return output;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }    
 }
