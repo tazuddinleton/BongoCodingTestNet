@@ -54,14 +54,11 @@ namespace BongoCodingTestNet
                     Console.WriteLine("Press enter to exit!");
                     Console.WriteLine("To find LCA insert two node value seperated by space.");
                     userInput = Console.ReadLine();
-                    if (!string.IsNullOrEmpty(userInput))
-                    {
-                        var inputs = userInput.Split(' ');
-                        n1 = int.Parse(inputs[0]);
-                        n2 = int.Parse(inputs[1]);
-                        lca = FindLCA(nodes.Find(node => node.Value == n1), nodes.Find(node => node.Value == n2));
-                        Console.WriteLine("LCA : {0}", lca);
-                    }
+                    var inputs = userInput.Split(' ');
+                    n1 = int.Parse(inputs[0]);
+                    n2 = int.Parse(inputs[1]);
+                    lca = FindLCA(nodes.Find(node => node.Value == n1), nodes.Find(node => node.Value == n2));
+                    Console.WriteLine("LCA : {0}", lca);
                 }
             }
             catch (Exception ex)
